@@ -47,34 +47,34 @@
   </style>
 </head>
 <body>
-<audio id="bg-music" autoplay loop muted>
-  <source src="https://docs.google.com/uc?export=download&id=1vYOjRJffFsh5tU-nImsyOY9WYPBZizc1" type="audio/mpeg">
+
+<!-- Nhạc nền Vocaroo -->
+<audio id="bg-music" autoplay loop>
+  <source src="https://vocaroo.com/media_command.php?media=1gEOEW4GwZ9P&command=download_mp3" type="audio/mpeg">
+  Trình duyệt không hỗ trợ phát nhạc.
 </audio>
 
 <div class="card">
-  <img id="image" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Ảnh tỏ tình">
-  <h2 id="text">
-    Hí hí, em có điều muốn nói với chị... 😳<br>
-    <small style="font-size: 14px; color: gray;">Đợi xí nghe nhạc xí rồi hãy click tiếp 🎵</small>
-  </h2>
+  <img id="image" src="step1.jpg" alt="Ảnh tỏ tình" />
+  <h2 id="text">Hí hí, em có điều muốn nói với chị... 😳<br>
+  <small style="font-size: 14px; color: gray;">(Đợi xí nghe nhạc rồi hãy click tiếp nha 🎶)</small></h2>
   <button onclick="nextStep()">Tiếp theo</button>
 </div>
+
 <script>
   const steps = [
-    { text: "Chị ơi... biết chị chưa lâu, mà em thấy tim mình lạ lắm á 🥺", img: "step1.jpg" },
-    { text: "Mỗi lần nhắn với chị là em cứ cười một mình như đứa ngốc 🙈", img: "step2.jpg" },
-    { text: "Chị dịu dàng, dễ thương, mà còn biết lắng nghe nữa...", img: "step3.jpg" },
-    { text: "Cảm giác được nói chuyện với chị mỗi ngày làm em thấy vui, nhẹ nhàng lắm 💖", img: "step2.jpg" },
-    { text: "Em vẫn còn nhút nhát, ngại nói mấy điều này trực tiếp...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
-    { text: "Nhưng hôm nay em gom hết can đảm để viết trang này...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
-    { text: "Thật lòng em thích chị mất rồi, thích nhiều lắm á 🥹", img: "z6679702140776_3eca6ce542a491ebc7b91e3e4739f0cd.jpg" },
-    { text: "Nếu chị thấy cũng có một chút xíu gì đó giống em...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
-    { text: "Thì... chúng mình cùng tìm hiểu nhau thử nha? 👉👈", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
-    { text: "Thật ra em cũng không chắc chị cảm thấy gì...", img: "step2.jpg" },
-    { text: "Nhưng em chỉ muốn chị biết là chị rất đặc biệt với em 🥰", img: "step2.jpg" },
-    { text: "Nếu chị muốn... mình có thể bắt đầu bằng một cuộc hẹn nhỏ? 👉👈", img: "step2.jpg" },
-    { text: "Hết rồi á... hí hí. Đừng chọc em nha 😳💞", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" }
+    { text: "Chị ơi... em biết mình mới quen nhau chưa lâu...", img: "step1.jpg" },
+    { text: "Nhưng... mỗi lần nói chuyện với chị, em thấy vui lắm luôn á 🥹", img: "step2.jpg" },
+    { text: "Chị biết chị dễ thương lắm không...? Nhìn riết em rung động rồi 🥺", img: "step3.jpg" },
+    { text: "Em ngại lắm, nên viết ra thế này cho đỡ run... 😳", img: "step2.jpg" },
+    { text: "Từ lúc có chị, ngày nào em cũng thấy dễ chịu, nhẹ lòng hơn 🍃", img: "step2.jpg" },
+    { text: "Không biết chị có cảm thấy giống em không nữa...", img: "step2.jpg" },
+    { text: "Em không chắc tương lai ra sao...", img: "step1.jpg" },
+    { text: "Nhưng em chắc một điều: em thích chị rồi 🥺", img: "z6679702140776_3eca6ce542a491ebc7b91e3e4739f0cd.jpg" },
+    { text: "Không biết... chúng mình có thể tìm hiểu nhau không? 👉👈", img: "step2.jpg" },
+    { text: "Hết rồi á... hí hí. Chị đừng chọc em ngại nha 🙈", img: "step2.jpg" }
   ];
+
   let current = 0;
 
   function nextStep() {
@@ -85,7 +85,7 @@
     if (music.muted) music.muted = false;
 
     if (current < steps.length) {
-      text.innerHTML = steps[current].text;
+      text.innerText = steps[current].text;
       image.src = steps[current].img;
       current++;
     } else {
