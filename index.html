@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tớ có điều muốn nói với chị...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe0e9, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff7e67;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff4f3c;
+    }
+    img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+<audio id="bg-music" autoplay loop muted>
+  <source src="https://docs.google.com/uc?export=download&id=1vYOjRJffFsh5tU-nImsyOY9WYPBZizc1" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <img id="image" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Ảnh tỏ tình">
+  <h2 id="text">
+    Hí hí, em có điều muốn nói với chị... 😳<br>
+    <small style="font-size: 14px; color: gray;">Đợi xí nghe nhạc xí rồi hãy click tiếp 🎵</small>
+  </h2>
+  <button onclick="nextStep()">Tiếp theo</button>
+</div>
+<script>
+  const steps = [
+    { text: "Chị ơi... biết chị chưa lâu, mà em thấy tim mình lạ lắm á 🥺", img: "step1.jpg" },
+    { text: "Mỗi lần nhắn với chị là em cứ cười một mình như đứa ngốc 🙈", img: "step2.jpg" },
+    { text: "Chị dịu dàng, dễ thương, mà còn biết lắng nghe nữa...", img: "step3.jpg" },
+    { text: "Cảm giác được nói chuyện với chị mỗi ngày làm em thấy vui, nhẹ nhàng lắm 💖", img: "step2.jpg" },
+    { text: "Em vẫn còn nhút nhát, ngại nói mấy điều này trực tiếp...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
+    { text: "Nhưng hôm nay em gom hết can đảm để viết trang này...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
+    { text: "Thật lòng em thích chị mất rồi, thích nhiều lắm á 🥹", img: "z6679702140776_3eca6ce542a491ebc7b91e3e4739f0cd.jpg" },
+    { text: "Nếu chị thấy cũng có một chút xíu gì đó giống em...", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
+    { text: "Thì... chúng mình cùng tìm hiểu nhau thử nha? 👉👈", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" },
+    { text: "Thật ra em cũng không chắc chị cảm thấy gì...", img: "step2.jpg" },
+    { text: "Nhưng em chỉ muốn chị biết là chị rất đặc biệt với em 🥰", img: "step2.jpg" },
+    { text: "Nếu chị muốn... mình có thể bắt đầu bằng một cuộc hẹn nhỏ? 👉👈", img: "step2.jpg" },
+    { text: "Hết rồi á... hí hí. Đừng chọc em nha 😳💞", img: "https://cdn-icons-png.flaticon.com/512/833/833472.png" }
+  ];
+  let current = 0;
+
+  function nextStep() {
+    const text = document.getElementById("text");
+    const image = document.getElementById("image");
+    const music = document.getElementById("bg-music");
+
+    if (music.muted) music.muted = false;
+
+    if (current < steps.length) {
+      text.innerHTML = steps[current].text;
+      image.src = steps[current].img;
+      current++;
+    } else {
+      document.querySelector("button").style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
